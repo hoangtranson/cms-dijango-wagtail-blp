@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/shCore.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/shThemeDefault.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    {% include 'home/left_side_bar.html' %}
+    {% include 'home/blog_detail.html' %}
+{% endblock content %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'js/syntax/shCore.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushCss.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushJScript.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushPerl.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushPhp.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushPlain.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushPython.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushRuby.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushSql.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushVb.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/syntax/shBrushXml.js' %}"></script>
+
+    <!-- Syntax Highlighter Call Function -->
+    <script type="text/javascript">
+        SyntaxHighlighter.config.clipboardSwf = 'js/syntax/clipboard.swf';
+        SyntaxHighlighter.all();
+    </script>
+{% endblock extra_js %}
+
