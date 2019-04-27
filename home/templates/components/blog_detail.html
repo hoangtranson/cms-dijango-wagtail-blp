@@ -4,7 +4,7 @@
   <div class="col-md-12 page-body">
     <div class="row">
       <div class="sub-title">
-        <a href="index.html" title="Go to Home Page">
+        <a href="{{ page.get_parent.url }}" title="Go to Home Page">
           <h2>Back Home</h2>
         </a>
         <a href="#comment" class="smoth-scroll">
@@ -19,15 +19,15 @@
 
           <!-- Post Headline Start -->
           <div class="post-title">
-            <h1>How to make your company website based on bootstrap framework on localhost?</h1>
+            <h1>{{page.title}}</h1>
           </div>
           <!-- Post Headline End -->
 
 
           <!-- Post Detail Start -->
           <div class="post-info">
-            <span>November 23, 2016 / by
-              <a href="#" target="_blank">Alex Parker</a>
+            <span>{{page.date}} / by
+              <a href="#" target="_blank">Hoang Tran</a>
             </span>
           </div>
           <!-- Post Detail End -->
@@ -40,11 +40,11 @@
             <b>
               <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-content="You can write any text here">Click me</a>
             </b> sollicitudin sapien ut sapien fermentum aliquet mollis. Curabitur ac quam orci sodales quam ut tempor.
-            <b data-toggle="tooltip"
-              data-placement="top" title="You can write any text here.">Hover me</b> suspendisse, gravida in augue in, interdum bibendum dui. Suspendisse sit amet justo sit amet diam
+            <b data-toggle="tooltip" data-placement="top" title="You can write any text here.">Hover me</b> suspendisse, gravida in augue in, interdum bibendum dui. Suspendisse sit amet justo sit amet diam
             fringilla commodo. Praesent ac magna at metus malesuada tincidunt non ac arcu. Nunc gravida eu felis vel elementum.
             Vestibulum sodales quam ut tempor tempor. Donec sollicitudin sapien ut sapien fermentum, non ultricies nulla
-            gravida.</p>
+            gravida.
+          </p>
 
 
           <!-- Post Image Start -->
@@ -99,31 +99,31 @@
           <!-- Post Coding (SyntaxHighlighter) Start -->
           <div class="margin-top-40 margin-bottom-40">
             <pre class="brush: js">
-                   /* Smooth Scroll */
+                /* Smooth Scroll */
 
-                    $('a.smoth-scroll').on("click", function (e) {
-                      var anchor = $(this);
-                      $('html, body').stop().animate({
-                      scrollTop: $(anchor.attr('href')).offset().top - 50
-                      }, 1000);
-                      e.preventDefault();
-                     });
- 
-                   /* Scroll To Top */
+                $('a.smoth-scroll').on("click", function (e) {
+                  var anchor = $(this);
+                  $('html, body').stop().animate({
+                  scrollTop: $(anchor.attr('href')).offset().top - 50
+                  }, 1000);
+                  e.preventDefault();
+                  });
 
-                   $(window).scroll(function(){
-                     if ($(this).scrollTop() >= 500) {
-                     $('.scroll-to-top').fadeIn();
-                     } else {
-                     $('.scroll-to-top').fadeOut();
-                     }
-                     });
+                /* Scroll To Top */
 
-                   $('.scroll-to-top').click(function(){
-                   $('html, body').animate({scrollTop : 0},800);
-                   return false;
-                    });
-                  </pre>
+                $(window).scroll(function(){
+                  if ($(this).scrollTop() >= 500) {
+                  $('.scroll-to-top').fadeIn();
+                  } else {
+                  $('.scroll-to-top').fadeOut();
+                  }
+                  });
+
+                $('.scroll-to-top').click(function(){
+                $('html, body').animate({scrollTop : 0},800);
+                return false;
+                });
+            </pre>
           </div>
           <!-- Post Coding (SyntaxHighlighter) End -->
 
@@ -284,5 +284,5 @@
 
     </div>
   </div>
-  {% include 'home/footer.html' %}
+  {% include 'components/footer.html' %}
 </div>
