@@ -35,7 +35,8 @@ class HomePage(Page):
 class BlogPage(Page):
     date = models.DateField(default=timezone.now)
     intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
+    # body = RichTextField(blank=True)
+    body = MarkdownField()
     # tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     # categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
 
@@ -51,7 +52,7 @@ class BlogPage(Page):
             # FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         ], heading="Blog information"),
         FieldPanel('intro'),
-        FieldPanel('body', classname="full"),
+        MarkdownPanel("body"),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
 
