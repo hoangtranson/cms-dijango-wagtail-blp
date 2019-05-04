@@ -10,6 +10,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 from wagtail.snippets.models import register_snippet
+from wagtailmd.utils import MarkdownField, MarkdownPanel
 
 class HomePage(Page):
     intro = RichTextField(blank=True)
