@@ -10,7 +10,6 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 from wagtail.snippets.models import register_snippet
-from wagtailmd.utils import MarkdownField, MarkdownPanel
 
 class HomePage(Page):
     intro = RichTextField(blank=True)
@@ -36,8 +35,7 @@ class HomePage(Page):
 class BlogPage(Page):
     date = models.DateField(default=timezone.now)
     intro = models.CharField(max_length=250)
-    # body = RichTextField(blank=True)
-    body = MarkdownField()
+    body = RichTextField(blank=True)
     # tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     # categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
 
@@ -53,7 +51,7 @@ class BlogPage(Page):
             # FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         ], heading="Blog information"),
         FieldPanel('intro'),
-        MarkdownPanel("body"),
+        FieldPanel('body', classname="full"),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
 
